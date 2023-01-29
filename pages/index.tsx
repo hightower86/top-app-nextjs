@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Button, Htag, Ptag } from "../components";
+import { Button, Htag, Ptag, Tag } from "../components";
 
 const Home: NextPage = () => {
   return (
@@ -16,6 +16,21 @@ const Home: NextPage = () => {
         офис. В этой профессии важным считается вдохновение, поэтому дизайнеры
         ищут его в разных местах.
       </Ptag>
+      <Tag size="s" color="ghost">
+        small ghost
+      </Tag>
+      <Tag size="m" color="gray">
+        medium gray
+      </Tag>
+      <Tag size="s" color="green">
+        10 green
+      </Tag>
+      <Tag size="m" color="primary">
+        10 primary
+      </Tag>
+      <Tag size="s" color="red" href="https://google.com">
+        10 red
+      </Tag>
     </div>
   );
 };
