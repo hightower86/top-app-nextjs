@@ -1,5 +1,5 @@
 import type { NextPage } from "next";
-import { Button, Htag, Ptag, Tag } from "../components";
+import { Button, Htag, Ptag, Rating, Tag } from "../components";
 
 const Home: NextPage = () => {
   return (
@@ -31,6 +31,7 @@ const Home: NextPage = () => {
       <Tag size="s" color="red" href="https://google.com">
         10 red
       </Tag>
+      <Rating rating={4} />
     </div>
   );
 };
