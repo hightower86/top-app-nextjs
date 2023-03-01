@@ -3,17 +3,18 @@ import { Header } from "./Header/Header";
 import { Sidebar } from "./Sidebar/Sidebar";
 import { Footer } from "./Footer/Footer";
 import { FC } from "react";
+import cls from "./Layout.module.css";
 
 const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
-    <>
-      <Header />
-      <div>
-        <Sidebar />
-        <div>{children}</div>
-      </div>
-      <Footer />
-    </>
+    <div className={cls.wrapper}>
+      <Header className={cls.header} />
+
+      <Sidebar className={cls.sidebar} />
+      <div className={cls.body}>{children}</div>
+
+      <Footer className={cls.footer} />
+    </div>
   );
 };
 
