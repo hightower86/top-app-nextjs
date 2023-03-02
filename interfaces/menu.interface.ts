@@ -9,5 +9,5 @@ export interface MenuItem {
   _id: {
     secondCategory: string;
   };
-  pages: Page[];
+  pages: PageItem[];
 }
