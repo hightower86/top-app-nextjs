@@ -24,8 +24,6 @@
 
 .sidebar {
     grid-area: sidebar;
-
-    background-color: rgb(172 255 47 / 33.9%);
 }
 
 .body {
