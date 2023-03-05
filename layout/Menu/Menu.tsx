@@ -8,6 +8,7 @@ import ServicesIcon from "./icons/services.svg";
 import ProductsIcon from "./icons/products.svg";
 import BooksIcon from "./icons/books.svg";
 import { TopLevelCategory } from "../../interfaces/page.interface";
+import Link from "next/link";
 
 interface MenuProps {
   className?: string;
@@ -48,16 +49,15 @@ export const Menu = ({ className }: MenuProps) => {
       <>
         {firstLevelMenu.map((m) => (
           <div key={m.route}>
-            <a href={`/${m.route}`}>
-              <div
-                className={cn(cls.firstLevel, {
-                  [cls.firstLevelActive]: m.id === firstCategory,
-                })}
-              >
-                {m.icon}
-                <span>{m.name}</span>
-              </div>
-            </a>
+            <Link
+              href={`/${m.route}`}
+              className={cn(cls.firstLevel, {
+                [cls.firstLevelActive]: m.id === firstCategory,
+              })}
+            >
+              {m.icon}
+              <span>{m.name}</span>
+            </Link>
             {m.id == firstCategory && buildSecondLevel(m)}
           </div>
         ))}
@@ -85,12 +85,12 @@ export const Menu = ({ className }: MenuProps) => {
   };
   const buidThirdLevel = (pages: PageItem[], route: string) => {
     return pages.map((p) => (
-      <a
+      <Link
         href={`/${route}/${p.alias}`}
         className={cn(cls.thirdLevel, { [cls.thirdLevelActive]: false })}
       >
         {p.category}
-      </a>
+      </Link>
     ));
   };
 
