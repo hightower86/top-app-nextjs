@@ -41,7 +41,11 @@
 }
 
 .secondLevelBlock {
-    margin: 0;
+    display: none;
+}
+
+.secondLevelBlockOpened {
+    display: block;
 }
 
 .secondLevelBlockOpened:last-child {
@@ -60,6 +64,7 @@
     display: block;
 
     margin-bottom: 10px;
+    padding-left: 10px;
 
     cursor: pointer;
 
