@@ -18,8 +18,6 @@
     grid-area: header;
 
     display: none;
-
-    background-color: rgb(128 128 128 / 33.2%);
 }
 
 .sidebar {
@@ -29,7 +27,7 @@
 .body {
     grid-area: body;
 
-    background-color: rgb(137 43 226 / 46.8%);
+    background-color: #E7E7E7;
 }
 
 .footer {
