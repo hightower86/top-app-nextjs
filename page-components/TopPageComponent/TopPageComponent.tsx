@@ -1,7 +1,8 @@
 import { TopPageComponentProps } from "./TopPageComponent.props";
-import classNames from "classnames";
+import cn from "classnames";
 import cls from "./TopPageComponent.module.css";
 import { Htag, Tag } from "../../components";
+import Card from "../../components/Card/Card";
 
 export const TopPageComponent = ({
   firstLevelCategory,
@@ -35,7 +36,12 @@ export const TopPageComponent = ({
         </Tag>
         <span>сортировка</span>
       </div>
-      <div className={cls.hh}></div>
+      <div className={cls.hh}>
+        <Card className={cls.hhCount}>
+          <div className={cls.hhStatTitle}>Всего вакансий</div>
+          <div className={cls.hhStatCount}>{page.hhDAta?.count}</div>
+        </Card>
+      </div>
     </div>
   );
 };
