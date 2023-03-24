@@ -1,11 +1,9 @@
 import { TopPageComponentProps } from "./TopPageComponent.props";
-import cn from "classnames";
 import cls from "./TopPageComponent.module.css";
-import { Htag, Tag } from "../../components";
-import Card from "../../components/Card/Card";
+import { HhData, Htag, Tag } from "../../components";
 
 export const TopPageComponent = ({
-  firstLevelCategory,
+  firstCategory,
   page,
   products,
 }: TopPageComponentProps): JSX.Element => {
@@ -36,12 +34,7 @@ export const TopPageComponent = ({
         </Tag>
         <span>сортировка</span>
       </div>
-      <div className={cls.hh}>
-        <Card className={cls.hhCount}>
-          <div className={cls.hhStatTitle}>Всего вакансий</div>
-          <div className={cls.hhStatCount}>{page.hhDAta?.count}</div>
-        </Card>
-      </div>
+      <HhData {...page.hhDAta} />
     </div>
   );
 };

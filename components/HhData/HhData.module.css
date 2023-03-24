@@ -1,0 +1,29 @@
+/* stylelint-disable selector-class-pattern */
+.title {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    align-items: baseline;
+    justify-items: left;
+    gap: 20px;
+}
+
+.hh {
+    margin: 0;
+}
+
+.count {
+    margin: 0;
+}
+
+.countValue {
+    margin: 0;
+}
+
+.salary {
+    margin: 0;
+}
+
+.rate {
+    margin: 0;
+}
