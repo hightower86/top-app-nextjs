@@ -5,7 +5,7 @@ import {
 } from "./../../interfaces/page.interface";
 
 export interface TopPageComponentProps {
-  firstLevelCategory: TopLevelCategory;
+  firstCategory: TopLevelCategory;
   page: TopPageModel;
   products: ProductModel[];
 }

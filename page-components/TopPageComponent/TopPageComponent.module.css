@@ -11,28 +11,3 @@
     justify-items: left;
     gap: 20px;
 }
-
-.hhTitle {
-    display: grid;
-    grid-template-columns: auto 1fr;
-
-    align-items: baseline;
-    justify-items: left;
-    gap: 20px;
-}
-
-.hh {
-    margin: 0;
-}
-
-.hhCount {
-    margin: 0;
-}
-
-.hhStatTitle {
-    margin: 0;
-}
-
-.hhStatCount {
-    margin: 0;
-}

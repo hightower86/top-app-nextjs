@@ -3,7 +3,7 @@ import { CardProps } from "./Card.props";
 import cls from "./Card.module.css";
 import cn from "classnames";
 
-const Card = ({
+export const Card = ({
   color = "white",
   children,
   className,
@@ -18,5 +18,3 @@ const Card = ({
     </div>
   );
 };
-
-export default Card;
