@@ -11,3 +11,18 @@
     justify-items: left;
     gap: 20px;
 }
+
+.hhTitle {
+    display: grid;
+    grid-template-columns: auto 1fr;
+
+    align-items: baseline;
+    justify-items: left;
+    gap: 20px;
+}
+
+@media screen and (max-width: 640px) {
+    .title {
+        grid-template-columns: auto 1fr;
+    }
+}

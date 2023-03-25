@@ -21,7 +21,6 @@ export const TopPageComponent = ({
             {products.length}
           </Tag>
         )}
-        <span>сортировка</span>
       </div>
       <div>
         {products && products.map((p) => <div key={p._id}>{p.title}</div>)}
@@ -34,7 +33,6 @@ export const TopPageComponent = ({
         >
           hh.ru
         </Tag>
-        <span>сортировка</span>
       </div>
       {firstCategory == TopLevelCategory.Courses && <HhData {...page.hh} />}
     </div>
