@@ -56,7 +56,7 @@ export interface TopPageModel {
   createdAt: Date;
   updatedAt: Date;
   __v: number;
-  hhDAta: HhDAta;
+  hh: HhDAta;
   categoryOn: string;
   blog: Blog;
   sravnikus: Sravnikus;
