@@ -1,12 +1,14 @@
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import cls from "./TopPageComponent.module.css";
 import { HhData, Htag, Tag } from "../../components";
+import { TopLevelCategory } from "../../interfaces/page.interface";
 
 export const TopPageComponent = ({
   firstCategory,
   page,
   products,
 }: TopPageComponentProps): JSX.Element => {
+  console.log({ page });
   return (
     <div className={cls.wrapper}>
       <div className={cls.title}>
@@ -34,7 +36,7 @@ export const TopPageComponent = ({
         </Tag>
         <span>сортировка</span>
       </div>
-      <HhData {...page.hhDAta} />
+      {firstCategory == TopLevelCategory.Courses && <HhData {...page.hh} />}
     </div>
   );
 };
