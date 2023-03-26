@@ -32,9 +32,9 @@
     font-weight: bold;
 }
 
-.gray {
+.grey {
     color: var(--white);
-    background: #B3C0D9;
+    background: #51648C;
 
     font-weight: bold;
 }
@@ -48,7 +48,6 @@
 
 .primary {
     color: var(--primary);
-
     border: 1px solid var(--primary);
     background: none;
 }
