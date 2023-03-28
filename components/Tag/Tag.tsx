@@ -3,7 +3,7 @@ import classNames from "classnames";
 import styles from "./Tag.module.css";
 
 export const Tag = ({
-  size = "l",
+  size = "m",
   color = "ghost",
   children,
   className,
