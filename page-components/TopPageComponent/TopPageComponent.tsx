@@ -1,18 +1,37 @@
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import cls from "./TopPageComponent.module.css";
-import { Advantages, HhData, Htag, Ptag, Tag } from "../../components";
+import { Advantages, HhData, Htag, Ptag, Sort, Tag } from "../../components";
 import { TopLevelCategory } from "../../interfaces/page.interface";
+import { useReducer } from "react";
+import { SortEnum } from "../../components/Sort/Sort.props";
 
 export const TopPageComponent = ({
   firstCategory,
   page,
   products,
 }: TopPageComponentProps): JSX.Element => {
+  // const [{ products: sortedPfoducts }, dispatchSort] = useReducer(sortReducer, {
+  //   products,
+  //   sort: SortEnum.Rating,
+  // });
   console.log({ page });
   return (
     <div className={cls.wrapper}>
       <div className={cls.title}>
         <Htag tag="h1">{page.title}</Htag>
+        {products && (
+          <Tag
+            color="gray"
+            size="m"
+            aria-label={products.length + "элементов"}
+          >
+            {products.length}
+          </Tag>
+        )}
+        <Sort
+          sort={SortEnum.Rating}
+          setSort={() => {}}
+        />
       </div>
       <div>
         {products && products.map((p) => <div key={p._id}>{p.title}</div>)}
@@ -39,15 +58,17 @@ export const TopPageComponent = ({
         <div dangerouslySetInnerHTML={{ __html: page.seoText }} />
       )}
       <Htag tag="h2">Получаемые навыки</Htag>
-      {page.tags.map((t) => (
-        <Tag
-          key={t}
-          color="primary"
-          className={cls.tag}
-        >
-          {t}
-        </Tag>
-      ))}
+      <div className={cls.tags}>
+        {page.tags.map((t) => (
+          <Tag
+            key={t}
+            color="primary"
+            className={cls.tag}
+          >
+            {t}
+          </Tag>
+        ))}
+      </div>
     </div>
   );
 };

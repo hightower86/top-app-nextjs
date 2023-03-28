@@ -1,3 +1,4 @@
+export { Sort } from "./Sort/Sort";
 export { Rating } from "./Rating/Rating";
 export { Htag } from "./Htag/Htag";
 export { Ptag } from "./Ptag/Ptag";
