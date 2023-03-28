@@ -25,6 +25,12 @@
 .sortBtn {
     display: flex;
     align-items: center;
+
+    cursor: pointer;
+}
+
+.sortBtn:hover {
+    color: var(--primary);
 }
 
 .sortName {
