@@ -1,6 +1,6 @@
 import type { GetStaticProps } from "next";
 import { useState } from "react";
-import { Button, Htag, Ptag, Rating, Tag } from "../components";
+import { Button, Htag, Input, Ptag, Rating, Tag } from "../components";
 import { withLayout } from "../layout/Layout";
 import axios from "axios";
 import { MenuItem } from "../interfaces/menu.interface";
@@ -11,7 +11,10 @@ const Home = ({ menu, firstCategory }: HomeProps): JSX.Element => {
     <>
       <Htag tag="h1">Text</Htag>
       <Button appearance="primary">Button</Button>
-      <Button appearance="ghost" arrow="down">
+      <Button
+        appearance="ghost"
+        arrow="down"
+      >
         Button
       </Button>
       <Ptag size="l">
@@ -21,22 +24,43 @@ const Home = ({ menu, firstCategory }: HomeProps): JSX.Element => {
         офис. В этой профессии важным считается вдохновение, поэтому дизайнеры
         ищут его в разных местах.
       </Ptag>
-      <Tag size="s" color="ghost">
+      <Tag
+        size="s"
+        color="ghost"
+      >
         small ghost
       </Tag>
-      <Tag size="m" color="gray">
+      <Tag
+        size="m"
+        color="gray"
+      >
         medium gray
       </Tag>
-      <Tag size="s" color="green">
+      <Tag
+        size="s"
+        color="green"
+      >
         10 green
       </Tag>
-      <Tag size="m" color="primary">
+      <Tag
+        size="m"
+        color="primary"
+      >
         10 primary
       </Tag>
-      <Tag size="s" color="red" href="https://google.com">
+      <Tag
+        size="s"
+        color="red"
+        href="https://google.com"
+      >
         10 red
       </Tag>
-      <Rating rating={rating} setRating={setRating} isEditable />
+      <Rating
+        rating={rating}
+        setRating={setRating}
+        isEditable
+      />
+      <Input placeholder="Input" />
       <ul>
         {menu.map((menuItem) => (
           <li key={menuItem._id.secondCategory}>
