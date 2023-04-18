@@ -7,3 +7,4 @@ export { Button } from "./Button/Button";
 export { HhData } from "./HhData/HhData";
 export { Card } from "./Card/Card";
 export { Advantages } from "./Advantages/Advantages";
+export { Input } from "./Input/Input";
