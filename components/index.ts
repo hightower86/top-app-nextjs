@@ -9,3 +9,4 @@ export { Card } from "./Card/Card";
 export { Advantages } from "./Advantages/Advantages";
 export { Input } from "./Input/Input";
 export { TextArea } from "./TextArea/TextArea";
+export { Search } from "./Search/Search";
