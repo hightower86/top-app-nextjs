@@ -1,6 +1,6 @@
 import { TopPageComponentProps } from "./TopPageComponent.props";
 import cls from "./TopPageComponent.module.css";
-import { Advantages, HhData, Htag, Ptag, Sort, Tag } from "../../components";
+import { Advantages, HhData, Htag, Product, Sort, Tag } from "../../components";
 import { TopLevelCategory } from "../../interfaces/page.interface";
 import { useReducer } from "react";
 import { SortEnum } from "../../components/Sort/Sort.props";
@@ -23,8 +23,6 @@ export const TopPageComponent = ({
     dispatchSort({ type: sort });
   };
 
-  console.log({ page });
-
   return (
     <div className={cls.wrapper}>
       <div className={cls.title}>
@@ -45,7 +43,12 @@ export const TopPageComponent = ({
       </div>
       <div>
         {sortedProducts &&
-          sortedProducts.map((p) => <div key={p._id}>{p.title}</div>)}
+          sortedProducts.map((p) => (
+            <Product
+              key={p._id}
+              product={p}
+            />
+          ))}
       </div>
       <div className={cls.hhTitle}>
         <Htag tag="h2">Вакансии - {page.category}</Htag>
