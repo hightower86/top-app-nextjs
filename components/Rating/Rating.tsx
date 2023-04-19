@@ -10,6 +10,7 @@ export const Rating = ({
   setRating,
   ...props
 }: RatingProps): JSX.Element => {
+  debugger;
   const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
     new Array(5).fill(<></>)
   );
@@ -32,6 +33,7 @@ export const Rating = ({
   };
 
   const constructRating = (currentRating: number) => {
+    debugger;
     const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
       return (
         <span
