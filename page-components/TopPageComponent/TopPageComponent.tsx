@@ -23,11 +23,6 @@ export const TopPageComponent = ({
     dispatchSort({ type: sort });
   };
 
-  console.log(
-    "@@ products:",
-    products.map((p) => p.title)
-  );
-
   return (
     <div className={cls.wrapper}>
       <div className={cls.title}>
