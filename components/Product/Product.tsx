@@ -4,7 +4,7 @@ import cls from "./Product.module.css";
 import { Button, Card, Rating, Tag } from "..";
 import { useState } from "react";
 import { Divider } from "..";
-import { priceRu } from "../../helpers/helpers";
+import { declOfNum, priceRu } from "../../helpers/helpers";
 
 export const Product = ({
   product,
@@ -72,7 +72,11 @@ export const Product = ({
       >
         кредит
       </div>
-      <div className={cls.rateTitle}>{product.reviewCount} отзывов</div>
+      <div className={cls.rateTitle}>
+        {product.reviewCount}{" "}
+        {declOfNum(product.reviewCount, ["отзыв", "отзыва", "отзывов"])}
+      </div>
+
       <Divider className={cls.hr} />
 
       <div className={cls.description}>{product.description}</div>
