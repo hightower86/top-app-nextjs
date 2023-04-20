@@ -12,3 +12,4 @@ export { TextArea } from "./TextArea/TextArea";
 export { Search } from "./Search/Search";
 export { Product } from "./Product/Product";
 export { Divider } from "./Divider/Divider";
+export { Review } from "./Review/Review";
