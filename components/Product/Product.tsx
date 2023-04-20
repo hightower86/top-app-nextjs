@@ -5,6 +5,7 @@ import { Button, Card, Rating, Tag } from "..";
 import { useState } from "react";
 import { Divider } from "..";
 import { declOfNum, priceRu } from "../../helpers/helpers";
+import Image from "next/image";
 
 export const Product = ({
   product,
@@ -16,7 +17,13 @@ export const Product = ({
   return (
     <Card className={cls.product}>
       <div className={cls.logo}>
-        <img
+        {/* <img
+          src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
+          alt={product.title}
+          width={70}
+          height={70}
+        /> */}
+        <Image
           src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
           alt={product.title}
           width={70}
