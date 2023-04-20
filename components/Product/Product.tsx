@@ -2,7 +2,7 @@ import { ProductProps } from "./Product.props";
 import cn from "classnames";
 import cls from "./Product.module.css";
 import { Button, Card, Rating, Tag } from "..";
-import { useRef, useState } from "react";
+import { useState } from "react";
 import { Divider } from "..";
 import { priceRu } from "../../helpers/helpers";
 
@@ -12,21 +12,6 @@ export const Product = ({
   ...props
 }: ProductProps): JSX.Element => {
   const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
-  // const reviewRef = useRef<HTMLDivElement>(null);
-
-  // const variants = {
-  //   visible: { opacity: 1, height: "auto" },
-  //   hidden: { opacity: 0, height: 0 },
-  // };
-
-  // const scrollToReview = () => {
-  //   setIsReviewOpened(true);
-  //   reviewRef.current?.scrollIntoView({
-  //     behavior: "smooth",
-  //     block: "start",
-  //   });
-  //   reviewRef.current?.focus();
-  // };
 
   return (
     <Card className={cls.product}>
@@ -62,8 +47,7 @@ export const Product = ({
         <span className="visualyHidden">
           {"рейтинг" + (product.reviewAvg ?? product.initialRating)}
         </span>
-        {/* <Rating rating={product.reviewAvg ?? product.initialRating} /> */}
-        <Rating rating={5} />
+        <Rating rating={product.reviewAvg ?? product.initialRating} />
       </div>
       <div className={cls.tags}>
         {product.categories.map((c) => (

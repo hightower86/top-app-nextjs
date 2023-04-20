@@ -10,12 +10,18 @@ export const Rating = ({
   setRating,
   ...props
 }: RatingProps): JSX.Element => {
-  debugger;
   const [ratingArray, setRatingArray] = useState<JSX.Element[]>(
-    new Array(5).fill(<></>)
+    new Array(5).fill(
+      <>
+        <StarIcon />
+      </>
+    )
   );
 
   const changeDisplay = (r: number) => {
+    if (!isEditable || !setRating) {
+      return;
+    }
     constructRating(r);
   };
   const onStarIconClick = (r: number) => {
@@ -33,7 +39,6 @@ export const Rating = ({
   };
 
   const constructRating = (currentRating: number) => {
-    debugger;
     const updatedArray = ratingArray.map((r: JSX.Element, i: number) => {
       return (
         <span
@@ -65,6 +70,10 @@ export const Rating = ({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [rating]);
 
+  useEffect(() => {
+    constructRating(rating);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div {...props}>
       {ratingArray.map((r, i) => (
