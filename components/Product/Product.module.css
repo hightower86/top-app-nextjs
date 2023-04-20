@@ -37,6 +37,7 @@
 .rateTitle {
     grid-column: ratestart / end;
 
+    /* justify-self: end; */
     white-space: nowrap;
 }
 
@@ -44,6 +45,10 @@
 .description,
 .actions {
     grid-column: start / end;
+}
+
+.actions {
+    display: flex;
 }
 
 .feature {

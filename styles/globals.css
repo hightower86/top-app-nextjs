@@ -1,3 +1,4 @@
+/* stylelint-disable selector-class-pattern */
 html,
 body {
     margin: 0;
@@ -31,4 +32,13 @@ a {
     --red-light: #FEA291;
     --green: #1DC37E;
     --green-light: #C8F8E4;
+}
+
+.visualyHidden {
+    position: absolute;
+
+    overflow: hidden;
+
+    width: 0;
+    height: 0;
 }
