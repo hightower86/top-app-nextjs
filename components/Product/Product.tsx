@@ -1,7 +1,7 @@
 import { ProductProps } from "./Product.props";
 import cn from "classnames";
 import cls from "./Product.module.css";
-import { Button, Card, Rating, Tag } from "..";
+import { Button, Card, Rating, ReviewForm, Tag } from "..";
 import { useState } from "react";
 import { Divider } from "..";
 import { declOfNum, priceRu } from "../../helpers/helpers";
@@ -136,10 +136,10 @@ export const Product = ({
             <Divider />
           </div>
         ))}
-        {/* <ReviewForm
+        <ReviewForm
           productId={product._id}
           isOpened={isReviewOpened}
-        /> */}
+        />
       </Card>
     </>
   );

@@ -82,6 +82,7 @@ export const Menu = ({ className }: MenuProps) => {
   const buidThirdLevel = (pages: PageItem[], route: string) => {
     return pages.map((p) => (
       <Link
+        key={p._id}
         href={`/${route}/${p.alias}`}
         className={cn(cls.thirdLevel, {
           [cls.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath,
