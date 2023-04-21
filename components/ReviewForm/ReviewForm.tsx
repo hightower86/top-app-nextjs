@@ -86,7 +86,7 @@ export const ReviewForm = ({
                 rating={field.value}
                 ref={field.ref}
                 setRating={field.onChange}
-                // error={errors.rating}
+                error={errors.rating}
                 tabIndex={isOpened ? 0 : -1}
               />
             )}
