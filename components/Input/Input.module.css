@@ -1,3 +1,4 @@
+/* stylelint-disable selector-class-pattern */
 .input {
     padding: 7px 15px;
 
@@ -16,4 +17,16 @@
 
 .input ::placeholder {
     color: var(--gray);
+}
+
+.inputWrapper {
+    position: relative;
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: -20px;
+    left: 0;
+
+    color: var(--red);
 }

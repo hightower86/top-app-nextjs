@@ -18,3 +18,19 @@
 .textArea ::placeholder {
     color: var(--gray);
 }
+
+.error {
+    border: 1px solid var(--red);
+}
+
+.textAreaWrapper {
+    position: relative;
+}
+
+.errorMessage {
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+
+    color: var(--red);
+}
