@@ -5,6 +5,7 @@ import React from "react";
 import { firstLevelMenu } from "../../helpers/helpers";
 import { MenuItem } from "../../interfaces/menu.interface";
 import { withLayout } from "../../layout/Layout";
+import { API } from "../../helpers/api";
 
 const SearchPage = ({ firstCategory }: TypeProps) => {
   return <div>Type: {firstCategory}</div>;
@@ -36,10 +37,9 @@ export const getStaticProps: GetStaticProps<TypeProps> = async ({
     };
   }
 
-  const { data: menu } = await axios.post<MenuItem[]>(
-    process.env.NEXT_PUBLIC_DOMAIN + "/api/top-page/find",
-    { firstCategory: firstCategotyItem.id }
-  );
+  const { data: menu } = await axios.post<MenuItem[]>(API.topPage.find, {
+    firstCategory: firstCategotyItem.id,
+  });
   return {
     props: {
       menu,
