@@ -2,7 +2,7 @@ import { TopPageComponentProps } from "./TopPageComponent.props";
 import cls from "./TopPageComponent.module.css";
 import { Advantages, HhData, Htag, Product, Sort, Tag } from "../../components";
 import { TopLevelCategory } from "../../interfaces/page.interface";
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { SortEnum } from "../../components/Sort/Sort.props";
 import { sortReducer } from "../../components/Sort/sort.reducer";
 
@@ -23,10 +23,14 @@ export const TopPageComponent = ({
     dispatchSort({ type: sort });
   };
 
+  useEffect(() => {
+    dispatchSort({ type: "reset", initialState: products });
+  }, [products]);
+
   return (
     <div className={cls.wrapper}>
       <div className={cls.title}>
-        <Htag tag="h1">{page.title}</Htag>
+        <Htag tag="h1">{page?.title}</Htag>
         {products && (
           <Tag
             color="gray"
@@ -51,7 +55,7 @@ export const TopPageComponent = ({
           ))}
       </div>
       <div className={cls.hhTitle}>
-        <Htag tag="h2">Вакансии - {page.category}</Htag>
+        <Htag tag="h2">Вакансии - {page?.category}</Htag>
         <Tag
           color="red"
           size="m"
@@ -59,21 +63,21 @@ export const TopPageComponent = ({
           hh.ru
         </Tag>
       </div>
-      {firstCategory == TopLevelCategory.Courses && page.hh && (
-        <HhData {...page.hh} />
+      {firstCategory == TopLevelCategory.Courses && page?.hh && (
+        <HhData {...page?.hh} />
       )}
 
       <Htag tag="h2">Преимущества</Htag>
 
-      {page.advantages && page.advantages.length > 0 && (
-        <Advantages advantages={page.advantages} />
+      {page?.advantages && page?.advantages.length > 0 && (
+        <Advantages advantages={page?.advantages} />
       )}
-      {page.seoText && (
-        <div dangerouslySetInnerHTML={{ __html: page.seoText }} />
+      {page?.seoText && (
+        <div dangerouslySetInnerHTML={{ __html: page?.seoText }} />
       )}
       <Htag tag="h2">Получаемые навыки</Htag>
       <div className={cls.tags}>
-        {page.tags.map((t) => (
+        {page?.tags.map((t) => (
           <Tag
             key={t}
             color="primary"
