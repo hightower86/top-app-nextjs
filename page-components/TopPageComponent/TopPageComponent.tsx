@@ -49,6 +49,7 @@ export const TopPageComponent = ({
         {sortedProducts &&
           sortedProducts.map((p) => (
             <Product
+              layout
               key={p._id}
               product={p}
             />
