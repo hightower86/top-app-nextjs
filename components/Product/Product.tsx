@@ -7,7 +7,7 @@ import { Divider } from "..";
 import { declOfNum, priceRu } from "../../helpers/helpers";
 import Image from "next/image";
 import { Review } from "../Review/Review";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export const Product = motion(
   forwardRef(
@@ -144,26 +144,39 @@ export const Product = motion(
               </Button>
             </div>
           </Card>
-
-          {isReviewOpened && (
-            <Card
-              color="blue"
-              className={cls.reviews}
-              ref={reviewRef}
-              tabIndex={isReviewOpened ? 0 : -1}
-            >
-              {product.reviews.map((r) => (
-                <div key={r._id}>
-                  <Review review={r} />
-                  <Divider />
-                </div>
-              ))}
-              <ReviewForm
-                productId={product._id}
-                isOpened={isReviewOpened}
-              />
-            </Card>
-          )}
+          <AnimatePresence>
+            {isReviewOpened && (
+              <motion.div
+                key="content"
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto" },
+                  collapsed: { opacity: 0, height: 0 },
+                }}
+                transition={{ duration: 0.8, ease: [0.14, 0.62, 0.23, 0.98] }}
+              >
+                <Card
+                  color="blue"
+                  className={cls.reviews}
+                  ref={reviewRef}
+                  tabIndex={isReviewOpened ? 0 : -1}
+                >
+                  {product.reviews.map((r) => (
+                    <div key={r._id}>
+                      <Review review={r} />
+                      <Divider />
+                    </div>
+                  ))}
+                  <ReviewForm
+                    productId={product._id}
+                    isOpened={isReviewOpened}
+                  />
+                </Card>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
       );
     }

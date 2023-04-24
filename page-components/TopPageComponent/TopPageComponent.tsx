@@ -20,8 +20,6 @@ export const TopPageComponent = ({
     }
   );
 
-  const Y = useScrollY();
-
   const setSort = (sort: SortEnum) => {
     dispatchSort({ type: sort });
   };
