@@ -6,6 +6,7 @@ import { FirstLevelMenuItem, PageItem } from "../../interfaces/menu.interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { firstLevelMenu } from "../../helpers/helpers";
+import { motion } from "framer-motion";
 
 interface MenuProps {
   className?: string;
@@ -16,7 +17,27 @@ export const Menu = ({ className }: MenuProps) => {
 
   const router = useRouter();
 
+  const variants = {
+    visible: {
+      marginBottom: 20,
+      transition: {
+        when: "beforeChildren",
+        staggerChildren: 0.1,
+      },
+    },
+    hidden: { marginBottom: 0 },
+  };
+
+  const variantsChildren = {
+    visible: {
+      opacity: 1,
+      minHeight: 29,
+    },
+    hidden: { opacity: 0, height: 0 },
+  };
+
   const openSecondLevel = (secondCategory: string) => {
+    console.log("@@@ openSecondLevel");
     setMenu &&
       setMenu(
         menu.map((m) => {
@@ -50,6 +71,7 @@ export const Menu = ({ className }: MenuProps) => {
   };
 
   const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
+    // debugger;
     return (
       <div className={cls.secondBlock}>
         {menu.map((m) => {
@@ -66,13 +88,15 @@ export const Menu = ({ className }: MenuProps) => {
               >
                 {m._id.secondCategory}
               </div>
-              <div
-                className={cn(cls.secondLevelBlock, {
-                  [cls.secondLevelBlockOpened]: m.isOpened,
-                })}
+              <motion.div
+                layout
+                variants={variants}
+                // initial={m.isOpened ? "visible" : "hidden"}
+                animate={m.isOpened ? "visible" : "hidden"}
+                className={cn(cls.secondLevelBlock)}
               >
                 {buidThirdLevel(m.pages, menuItem.route)}
-              </div>
+              </motion.div>
             </div>
           );
         })}
@@ -81,15 +105,19 @@ export const Menu = ({ className }: MenuProps) => {
   };
   const buidThirdLevel = (pages: PageItem[], route: string) => {
     return pages.map((p) => (
-      <Link
+      <motion.div
         key={p._id}
-        href={`/${route}/${p.alias}`}
-        className={cn(cls.thirdLevel, {
-          [cls.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath,
-        })}
+        variants={variantsChildren}
       >
-        {p.category}
-      </Link>
+        <Link
+          href={`/${route}/${p.alias}`}
+          className={cn(cls.thirdLevel, {
+            [cls.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath,
+          })}
+        >
+          {p.category}
+        </Link>
+      </motion.div>
     ));
   };
 
