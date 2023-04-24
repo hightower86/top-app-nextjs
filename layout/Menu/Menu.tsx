@@ -19,7 +19,7 @@ export const Menu = ({ className }: MenuProps) => {
 
   const variants = {
     visible: {
-      marginBottom: 20,
+      // marginBottom: 20,
       transition: {
         when: "beforeChildren",
         staggerChildren: 0.1,
@@ -31,7 +31,7 @@ export const Menu = ({ className }: MenuProps) => {
   const variantsChildren = {
     visible: {
       opacity: 1,
-      minHeight: 29,
+      // height: 29,
     },
     hidden: { opacity: 0, height: 0 },
   };
@@ -91,7 +91,7 @@ export const Menu = ({ className }: MenuProps) => {
               <motion.div
                 layout
                 variants={variants}
-                // initial={m.isOpened ? "visible" : "hidden"}
+                // initial={"hidden"}
                 animate={m.isOpened ? "visible" : "hidden"}
                 className={cn(cls.secondLevelBlock)}
               >
