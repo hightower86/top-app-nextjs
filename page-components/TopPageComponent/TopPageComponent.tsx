@@ -5,7 +5,6 @@ import { TopLevelCategory } from "../../interfaces/page.interface";
 import { useEffect, useReducer } from "react";
 import { SortEnum } from "../../components/Sort/Sort.props";
 import { sortReducer } from "../../components/Sort/sort.reducer";
-import { useScrollY } from "../../hooks/useScroll";
 
 export const TopPageComponent = ({
   firstCategory,
