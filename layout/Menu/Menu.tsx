@@ -6,7 +6,7 @@ import { FirstLevelMenuItem, PageItem } from "../../interfaces/menu.interface";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { firstLevelMenu } from "../../helpers/helpers";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface MenuProps {
   className?: string;
@@ -17,27 +17,7 @@ export const Menu = ({ className }: MenuProps) => {
 
   const router = useRouter();
 
-  const variants = {
-    visible: {
-      // marginBottom: 20,
-      transition: {
-        when: "beforeChildren",
-        staggerChildren: 0.1,
-      },
-    },
-    hidden: { marginBottom: 0 },
-  };
-
-  const variantsChildren = {
-    visible: {
-      opacity: 1,
-      // height: 29,
-    },
-    hidden: { opacity: 0, height: 0 },
-  };
-
   const openSecondLevel = (secondCategory: string) => {
-    console.log("@@@ openSecondLevel");
     setMenu &&
       setMenu(
         menu.map((m) => {
@@ -71,7 +51,6 @@ export const Menu = ({ className }: MenuProps) => {
   };
 
   const buildSecondLevel = (menuItem: FirstLevelMenuItem) => {
-    // debugger;
     return (
       <div className={cls.secondBlock}>
         {menu.map((m) => {
@@ -88,15 +67,27 @@ export const Menu = ({ className }: MenuProps) => {
               >
                 {m._id.secondCategory}
               </div>
-              <motion.div
-                layout
-                variants={variants}
-                // initial={"hidden"}
-                animate={m.isOpened ? "visible" : "hidden"}
-                className={cn(cls.secondLevelBlock)}
-              >
-                {buidThirdLevel(m.pages, menuItem.route)}
-              </motion.div>
+              <AnimatePresence initial={false}>
+                {m.isOpened && (
+                  <motion.div
+                    className={cn(cls.secondLevelBlock)}
+                    key="content"
+                    initial="collapsed"
+                    animate="open"
+                    exit="collapsed"
+                    variants={{
+                      open: { opacity: 1, height: "auto" },
+                      collapsed: { opacity: 0, height: 0 },
+                    }}
+                    transition={{
+                      duration: 0.8,
+                      ease: [0.04, 0.62, 0.23, 0.98],
+                    }}
+                  >
+                    {buidThirdLevel(m.pages, menuItem.route)}
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
           );
         })}
@@ -107,7 +98,9 @@ export const Menu = ({ className }: MenuProps) => {
     return pages.map((p) => (
       <motion.div
         key={p._id}
-        variants={variantsChildren}
+        // variants={variantsChildren}
+        variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
+        transition={{ duration: 0.8 }}
       >
         <Link
           href={`/${route}/${p.alias}`}
