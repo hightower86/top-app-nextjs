@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, KeyboardEvent } from "react";
 import { AppContext } from "../../context/app.context";
 import cls from "./Menu.module.css";
 import cn from "classnames";
@@ -27,6 +27,13 @@ export const Menu = ({ className }: MenuProps) => {
           return m;
         })
       );
+  };
+
+  const openSecondLevelKey = (key: KeyboardEvent, secondCategory: string) => {
+    if (key.code == "Space" || key.code == "Enter") {
+      key.preventDefault();
+      openSecondLevel(secondCategory);
+    }
   };
 
   const buidFirstLevel = () => {
@@ -62,6 +69,10 @@ export const Menu = ({ className }: MenuProps) => {
           return (
             <div key={m._id.secondCategory}>
               <div
+                tabIndex={0}
+                onKeyDown={(key: KeyboardEvent) =>
+                  openSecondLevelKey(key, m._id.secondCategory)
+                }
                 className={cls.secondLevel}
                 onClick={() => openSecondLevel(m._id.secondCategory)}
               >
@@ -84,7 +95,11 @@ export const Menu = ({ className }: MenuProps) => {
                       ease: [0.04, 0.62, 0.23, 0.98],
                     }}
                   >
-                    {buidThirdLevel(m.pages, menuItem.route)}
+                    {buidThirdLevel(
+                      m.pages,
+                      menuItem.route,
+                      m.isOpened ?? false
+                    )}
                   </motion.div>
                 )}
               </AnimatePresence>
@@ -94,15 +109,19 @@ export const Menu = ({ className }: MenuProps) => {
       </div>
     );
   };
-  const buidThirdLevel = (pages: PageItem[], route: string) => {
+  const buidThirdLevel = (
+    pages: PageItem[],
+    route: string,
+    isOpened: boolean
+  ) => {
     return pages.map((p) => (
       <motion.div
         key={p._id}
-        // variants={variantsChildren}
         variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
         transition={{ duration: 0.8 }}
       >
         <Link
+          tabIndex={isOpened ? 0 : -1}
           href={`/${route}/${p.alias}`}
           className={cn(cls.thirdLevel, {
             [cls.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath,

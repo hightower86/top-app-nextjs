@@ -2,7 +2,7 @@ import { SearchProps } from "./Search.props";
 import classNames from "classnames";
 import cls from "./Search.module.css";
 import { Button, Input } from "..";
-import { useState } from "react";
+import { useState, KeyboardEvent } from "react";
 import GlassIcon from "./glass.svg";
 import { useRouter } from "next/router";
 
@@ -35,8 +35,6 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
         placeholder="Поиск..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
         onKeyDown={handleKeyDown}
       />
       <Button
