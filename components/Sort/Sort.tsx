@@ -14,7 +14,7 @@ export const Sort = ({
       className={cn(cls.sort, className)}
       {...props}
     >
-      <span
+      <button
         onClick={() => setSort(SortEnum.Rating)}
         className={cn(cls.sortBtn, {
           [cls.active]: sort == SortEnum.Rating,
@@ -22,8 +22,8 @@ export const Sort = ({
       >
         <SortIcon className={cls.sortIcon} />
         По рейтингу
-      </span>
-      <span
+      </button>
+      <button
         onClick={() => setSort(SortEnum.Price)}
         className={cn(cls.sortBtn, {
           [cls.active]: sort == SortEnum.Price,
@@ -31,7 +31,7 @@ export const Sort = ({
       >
         <SortIcon className={cls.sortIcon} />
         По цене
-      </span>
+      </button>
     </div>
   );
 };
