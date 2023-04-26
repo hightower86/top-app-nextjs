@@ -133,5 +133,12 @@ export const Menu = ({ className }: MenuProps) => {
     ));
   };
 
-  return <div className={cn(className, cls.menu)}>{buidFirstLevel()}</div>;
+  return (
+    <nav
+      className={cn(className, cls.menu)}
+      role="navigation"
+    >
+      {buidFirstLevel()}
+    </nav>
+  );
 };
