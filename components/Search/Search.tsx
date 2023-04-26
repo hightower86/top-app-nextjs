@@ -26,8 +26,9 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
   };
 
   return (
-    <div
+    <form
       className={classNames(cls.p, cls.search, className)}
+      role="search"
       {...props}
     >
       <Input
@@ -45,6 +46,6 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
       >
         <GlassIcon />
       </Button>
-    </div>
+    </form>
   );
 };
