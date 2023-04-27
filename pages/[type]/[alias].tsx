@@ -25,18 +25,18 @@ const TopPage = ({
   return (
     <>
       <Head>
-        <title>{page.metaTitle}</title>
+        <title>{page?.metaTitle}</title>
         <meta
           name="description"
-          content={page.metaDescription}
+          content={page?.metaDescription}
         />
         <meta
           property="og:title"
-          content={page.metaTitle}
+          content={page?.metaTitle}
         />
         <meta
           property="og:description"
-          content={page.metaDescription}
+          content={page?.metaDescription}
         />
         <meta
           property="og:type"

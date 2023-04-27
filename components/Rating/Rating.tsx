@@ -57,13 +57,6 @@ export const Rating = forwardRef(
       setRating(r);
     };
 
-    const handleSpace = (r: number, e: KeyboardEvent) => {
-      if (e.code !== "Space" || !setRating) {
-        return;
-      }
-      setRating(r);
-    };
-
     const computeFocus = (r: number, i: number): number => {
       if (!isEditable) {
         return -1;
