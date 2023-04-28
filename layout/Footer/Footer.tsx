@@ -8,12 +8,21 @@ export const Footer = ({
   ...otherProps
 }: FooterProps): JSX.Element => {
   return (
-    <footer className={cn(cls.footer, className)} {...otherProps}>
-      <div>OwTop 2022-{format(new Date(), "yyyy")} All rights reserved</div>
-      <a href="#" target="_blank">
+    <footer
+      className={cn(cls.footer, className)}
+      {...otherProps}
+    >
+      <div>FoxTop 2022-{format(new Date(), "yyyy")} All rights reserved</div>
+      <a
+        href="#"
+        target="_blank"
+      >
         User agreement
       </a>
-      <a href="#" target="_blank">
+      <a
+        href="#"
+        target="_blank"
+      >
         Privacy Policy
       </a>
     </footer>
