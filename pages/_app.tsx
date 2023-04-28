@@ -42,7 +42,6 @@ function MyApp({ Component, pageProps, router }: AppProps): JSX.Element {
         version="2"
       />
       <Component {...pageProps} />
-      <Component {...pageProps} />
     </>
   );
 }
