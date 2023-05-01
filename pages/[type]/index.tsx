@@ -6,9 +6,15 @@ import { withLayout } from "../../layout/Layout";
 import { firstLevelMenu } from "../../helpers/helpers";
 import { ParsedUrlQuery } from "querystring";
 import { API } from "../../helpers/api";
+import { Htag } from "../../components";
 
 function Type({ firstCategory }: TypeProps): JSX.Element {
-  return <>Type: {firstCategory}</>;
+  return (
+    <div className="centered">
+      <Htag tag="h1">Топ курсов</Htag>
+      <Htag tag="h2">{firstLevelMenu[firstCategory].name}</Htag>
+    </div>
+  );
 }
 
 export default withLayout(Type);
