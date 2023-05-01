@@ -12,7 +12,7 @@ function Type({ firstCategory }: TypeProps): JSX.Element {
   return (
     <div className="centered">
       <Htag tag="h1">Топ курсов</Htag>
-      <Htag tag="h2">{firstLevelMenu[firstCategory].name}</Htag>
+      <Htag tag="h2">{firstLevelMenu[firstCategory]?.name}</Htag>
     </div>
   );
 }
